@@ -17,36 +17,33 @@ public class login {
     
     public login(Connection con, String id, String password){
         String sql = "select kode from akun where id='" + id +"' and pass='" + password +"'";
-        String sql2 = "select nama from akun natural join member where id='" + id +"'";
-        String sql3 = "select nama from akun natural join admin where id='" + id +"'";
+        String sql2 = "select nama from member where id='" + id +"'";
+        String sql3 = "select nama from admin where id='" + id +"'";
         try{
             Statement stmt = con.createStatement();
             
-            if(stmt.execute(sql)){
-                ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
                 
-                if(rs.next())this.kode = rs.getString("kode");
+                    this.kode = rs.getString("kode");
                 
-                
-                if("1".equals(this.kode)){
-                    rs = stmt.executeQuery(sql3);
-                    if(rs.next()) this.nama = rs.getString("nama");
-                    System.out.println("Selamat datang admin " + this.nama);
-                }else{
-                    rs = stmt.executeQuery(sql2);
-                    if(rs.next())this.nama = rs.getString("nama");
-                    System.out.println("Selamat datang member " + this.nama);
-                }
-           
-                
+                    if("1".equals(this.kode)){
+                        rs = stmt.executeQuery(sql3);
+                        if(rs.next()) this.nama = rs.getString("nama");
+                        System.out.println("Selamat datang admin " + this.nama);
+                    }else{
+                        rs = stmt.executeQuery(sql2);
+                        if(rs.next())this.nama = rs.getString("nama");
+                        System.out.println("Selamat datang member " + this.nama);
+                    }
+                   
             }else{
-                    System.out.println("Kamu belum daftar");
+                    System.out.println("Kesalahan login!");
             }
             
-             
             stmt.close();
         }catch (SQLException ex) {
-            System.out.println("Gagal login " + ex);
+            System.out.println("Gagal terhubung " + ex);
             
         }
         
