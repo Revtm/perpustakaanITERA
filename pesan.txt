@@ -1,1 +1,2 @@
-test
+Harap untuk selalu pull dari master ke branch (master -> branch) 
+sebelum mengupload file ke branch masing-masing
