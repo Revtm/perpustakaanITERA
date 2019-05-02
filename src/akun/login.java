@@ -15,7 +15,7 @@ public class login {
     String kode;
     
     public user getlogin(Connection con, String id, String password){
-        
+        user pengguna;
         String sql = "select kode from akun where id='" + id +"' and pass='" + password +"'";
         String sql2 = "select * from member where id='" + id +"'";
         String sql3 = "select * from admin where id='" + id +"'";
@@ -28,7 +28,7 @@ public class login {
                     this.kode = rs.getString("kode");
                 
                     if("1".equals(this.kode)){
-                        user pengguna = new user();
+                        pengguna = new user();
                         rs = stmt.executeQuery(sql3);
                         if(rs.next()){
                             pengguna.setID(rs.getString("id"));
@@ -38,16 +38,16 @@ public class login {
                         System.out.println("Selamat datang admin " + pengguna.getNama());
                         return pengguna;
                     }else{
-                        member pengguna2 = new member();
+                        pengguna = new member();
                         rs = stmt.executeQuery(sql2);
                         if(rs.next()){
-                            pengguna2.setID(rs.getString("id"));
-                            pengguna2.setNama(rs.getString("nama"));
-                            pengguna2.setProdi(rs.getString("prodi"));
-                            pengguna2.setEmail(rs.getString("email"));
+                            pengguna.setID(rs.getString("id"));
+                            pengguna.setNama(rs.getString("nama"));
+                            pengguna.setProdi(rs.getString("prodi"));
+                            pengguna.setEmail(rs.getString("email"));
                         }
-                        System.out.println("Selamat datang member " + pengguna2.getNama());
-                        return pengguna2;
+                        System.out.println("Selamat datang member " + pengguna.getNama());
+                        return pengguna;
                     }
                    
             }else{
@@ -87,7 +87,7 @@ public class login {
         user pengguna;
         pengguna = loginuser.getlogin(konek, id, password);
         
-        System.out.println(pengguna.getProdi());
+        
         
     }
 }
