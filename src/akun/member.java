@@ -16,6 +16,7 @@ public class member extends user{
         this.prodi=prodi;
     }
     
+    @Override
     public String getProdi(){
         return this.prodi;
     }
