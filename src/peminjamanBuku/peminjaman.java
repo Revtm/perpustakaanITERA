@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akun;
+package peminjamanBuku;
 
 /**
  *
  * @author revan
  */
-public class member extends user{
-    private String prodi;
+public class peminjaman {
     
-    public void setProdi(String prodi){
-        this.prodi=prodi;
-    }
-    
-   
-    public String getProdi(){
-        return this.prodi;
-    }
 }

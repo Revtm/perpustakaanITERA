@@ -35,7 +35,7 @@ public class login {
                             pengguna.setNama(rs.getString("nama"));
                             pengguna.setEmail(rs.getString("email"));
                         }
-                        System.out.println("Selamat datang admin " + pengguna.getNama());
+                        //System.out.println("Selamat datang admin " + pengguna.getNama());
                         return pengguna;
                     }else{
                         pengguna = new member();
@@ -43,10 +43,10 @@ public class login {
                         if(rs.next()){
                             pengguna.setID(rs.getString("id"));
                             pengguna.setNama(rs.getString("nama"));
-                            pengguna.setProdi(rs.getString("prodi"));
+                            ((member)pengguna).setProdi(rs.getString("prodi"));
                             pengguna.setEmail(rs.getString("email"));
                         }
-                        System.out.println("Selamat datang member " + pengguna.getNama());
+                        //System.out.println("Selamat datang member " + pengguna.getNama() +" dari prodi "+ ((member)pengguna).getProdi());
                         return pengguna;
                     }
                    
@@ -76,7 +76,6 @@ public class login {
         System.out.print("id: "); String id = sc.next();
         System.out.print("passw: "); String password = sc.next();
         
-        System.out.println(id +" "+password);
         
         koneksi con = new koneksi();
         
@@ -86,6 +85,8 @@ public class login {
         
         user pengguna;
         pengguna = loginuser.getlogin(konek, id, password);
+        
+        System.out.println("----------------");
         
         
         

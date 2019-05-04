@@ -22,9 +22,9 @@ public class user {
         this.nama = nama;
     }
     
-    public void setProdi(){
-        
-    };
+//    public void setProdi(String prodi){
+//        
+//    };
     
     public void setEmail(String email){
         this.email = email;
@@ -38,9 +38,9 @@ public class user {
         return nama;
     }
     
-    public String getProdi(){
-        return "prodi";
-    };
+//    public String getProdi(){
+//        return "prodi";
+//    };
     
     public String getEmail(){
         return email;
