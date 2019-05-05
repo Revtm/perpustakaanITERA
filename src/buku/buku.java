@@ -10,26 +10,27 @@ package buku;
  * @author revan
  */
 public class buku {
-     private String judul;
+    private String judul;
     private String penerbit;
     private int idbuku;
     private String posisi;
     private String status;
-    private String penulis;
-    private String deskripsi;
+    private String kategori;
+    private int isbn;
+  
+   
     
     public buku(){
         
     }
-    public buku(String judul,String penerbit,int idbuku,String posisi,String status,String penulis,String deskripsi){
+    public buku(String judul,int isbn,String penerbit,int idbuku,String posisi,String status,String penulis,String kategori){
         this.judul=judul;
         this.penerbit=penerbit;
         this.idbuku=idbuku;
         this.posisi=posisi;
         this.status=status;
-        this.penulis=penulis;
-        this.deskripsi=deskripsi;
-        
+        this.kategori=kategori;
+        this.isbn=isbn;
     }
     
     public String getPenerbit(){
@@ -67,18 +68,18 @@ public class buku {
     public void setGetStatus(String status){
         this.status=status;
     }
-     public String getPenulis(){
-        return penulis;
+    public String getKategori(){
+        return kategori;
     }
     
-    public void setGetPenulis(String penulis){
-        this.penulis=penulis;
-    }
-     public String getDeskripsi(){
-        return deskripsi;
+    public void setKategori(String kategori){
+        this.kategori=kategori;
     }
     
-    public void setGetDeskripsi(String deskripsi){
-        this.deskripsi=deskripsi;
+    public int getIsbn(){
+        return isbn;
+    }
+    public void setGetIsbn(int isbn){
+        this.isbn=isbn;
     }
 }
