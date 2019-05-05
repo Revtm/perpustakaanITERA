@@ -10,5 +10,75 @@ package buku;
  * @author revan
  */
 public class buku {
+     private String judul;
+    private String penerbit;
+    private int idbuku;
+    private String posisi;
+    private String status;
+    private String penulis;
+    private String deskripsi;
     
+    public buku(){
+        
+    }
+    public buku(String judul,String penerbit,int idbuku,String posisi,String status,String penulis,String deskripsi){
+        this.judul=judul;
+        this.penerbit=penerbit;
+        this.idbuku=idbuku;
+        this.posisi=posisi;
+        this.status=status;
+        this.penulis=penulis;
+        this.deskripsi=deskripsi;
+        
+    }
+    
+    public String getPenerbit(){
+        return penerbit;
+    }
+    
+    public void setGetPenerbit(String penerbit){
+        this.penerbit=penerbit;
+    }
+    public String getJudul(){
+        return judul;
+    }
+    
+    public void setGetJudul(String judul){
+        this.judul=judul;
+    }
+     public int getIdBuku(){
+        return idbuku;
+    }
+    
+    public void setGetIdBuku(int idbuku){
+        this.idbuku=idbuku;
+    }
+     public String getPosisi(){
+        return posisi;
+    }
+    
+    public void setGetPosisi(String posisi){
+        this.posisi=posisi;
+    }
+     public String getStatus(){
+        return status;
+    }
+    
+    public void setGetStatus(String status){
+        this.status=status;
+    }
+     public String getPenulis(){
+        return penulis;
+    }
+    
+    public void setGetPenulis(String penulis){
+        this.penulis=penulis;
+    }
+     public String getDeskripsi(){
+        return deskripsi;
+    }
+    
+    public void setGetDeskripsi(String deskripsi){
+        this.deskripsi=deskripsi;
+    }
 }
