@@ -12,44 +12,57 @@ import koneksi.koneksi;
  * @author revan
  */
 public class login {
-    private String nama;
-    private String kode;
+    String kode;
     
-    public login(Connection con, String id, String password){
+    public user getlogin(Connection con, String id, String password){
+        user pengguna;
         String sql = "select kode from akun where id='" + id +"' and pass='" + password +"'";
-        String sql2 = "select nama from akun natural join member where id='" + id +"'";
-        String sql3 = "select nama from akun natural join admin where id='" + id +"'";
+        String sql2 = "select * from member where id='" + id +"'";
+        String sql3 = "select * from admin where id='" + id +"'";
         try{
             Statement stmt = con.createStatement();
             
-            if(stmt.execute(sql)){
-                ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
                 
-                if(rs.next())this.kode = rs.getString("kode");
+                    this.kode = rs.getString("kode");
                 
-                
-                if("1".equals(this.kode)){
-                    rs = stmt.executeQuery(sql3);
-                    if(rs.next()) this.nama = rs.getString("nama");
-                    System.out.println("Selamat datang admin " + this.nama);
-                }else{
-                    rs = stmt.executeQuery(sql2);
-                    if(rs.next())this.nama = rs.getString("nama");
-                    System.out.println("Selamat datang member " + this.nama);
-                }
-           
-                
+                    if("1".equals(this.kode)){
+                        pengguna = new user();
+                        rs = stmt.executeQuery(sql3);
+                        if(rs.next()){
+                            pengguna.setID(rs.getString("id"));
+                            pengguna.setNama(rs.getString("nama"));
+                            pengguna.setEmail(rs.getString("email"));
+                        }
+                        //System.out.println("Selamat datang admin " + pengguna.getNama());
+                        return pengguna;
+                    }else{
+                        pengguna = new member();
+                        rs = stmt.executeQuery(sql2);
+                        if(rs.next()){
+                            pengguna.setID(rs.getString("id"));
+                            pengguna.setNama(rs.getString("nama"));
+                            ((member)pengguna).setProdi(rs.getString("prodi"));
+                            pengguna.setEmail(rs.getString("email"));
+                        }
+                        //System.out.println("Selamat datang member " + pengguna.getNama() +" dari prodi "+ ((member)pengguna).getProdi());
+                        return pengguna;
+                    }
+                   
             }else{
-                    System.out.println("Kamu belum daftar");
+                    System.out.println("Kesalahan login!");
+                    
+                    
             }
             
-             
             stmt.close();
         }catch (SQLException ex) {
-            System.out.println("Gagal login " + ex);
+            System.out.println("Gagal terhubung " + ex);
+            System.out.println(id +" ");
             
         }
-        
+        return null;
         
     }
     
@@ -60,14 +73,21 @@ public class login {
         
         Connection konek;
         
-        String id = sc.next();
-        String password = sc.next();
+        System.out.print("id: "); String id = sc.next();
+        System.out.print("passw: "); String password = sc.next();
+        
         
         koneksi con = new koneksi();
         
         konek=con.getKoneksi();
         
-        login loginuser = new login(konek, id, password);
+        login loginuser = new login();
+        
+        user pengguna;
+        pengguna = loginuser.getlogin(konek, id, password);
+        
+        System.out.println("----------------");
+        
         
         
     }
