@@ -29,16 +29,19 @@ public class login {
                 
                     if("1".equals(this.kode)){
                         pengguna = new user();
+                        pengguna.setKode(this.kode);
                         rs = stmt.executeQuery(sql3);
                         if(rs.next()){
                             pengguna.setID(rs.getString("id"));
                             pengguna.setNama(rs.getString("nama"));
                             pengguna.setEmail(rs.getString("email"));
+                            
                         }
                         //System.out.println("Selamat datang admin " + pengguna.getNama());
                         return pengguna;
                     }else{
                         pengguna = new member();
+                        pengguna.setKode(this.kode);
                         rs = stmt.executeQuery(sql2);
                         if(rs.next()){
                             pengguna.setID(rs.getString("id"));

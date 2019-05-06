@@ -13,6 +13,15 @@ public class user {
     private String id;
     private String nama;
     private String email;
+    private String kode;
+    
+    public String getKode(){
+        return this.kode;
+    }
+    
+    public void setKode(String kode){
+        this.kode = kode;
+    }
     
     public void setID(String nama){
         this.nama = nama;
