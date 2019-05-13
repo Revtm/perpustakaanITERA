@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `peminjaman`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `peminjaman` (
-  `no_peminjaman` int(5) NOT NULL,
+  `no_peminjaman` varchar(8) NOT NULL,
   `id` varchar(8) DEFAULT NULL,
   `tanggal_pinjam` date NOT NULL,
   `tanggal_kembali` date NOT NULL,
@@ -153,6 +153,7 @@ CREATE TABLE `peminjaman` (
 
 LOCK TABLES `peminjaman` WRITE;
 /*!40000 ALTER TABLE `peminjaman` DISABLE KEYS */;
+INSERT INTO `peminjaman` VALUES ('1','14117003','2019-05-14','2019-05-21','00001'),('2','14117003','2019-05-14','2019-05-21','00002'),('3','14117003','2019-05-14','2019-05-21','00004'),('5','14117003','2019-05-14','2019-05-21','00004');
 /*!40000 ALTER TABLE `peminjaman` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -165,4 +166,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-14  0:01:07
+-- Dump completed on 2019-05-14  1:55:54
