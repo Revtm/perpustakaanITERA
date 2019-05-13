@@ -15,42 +15,29 @@ public class buku {
     private String idbuku;
     private String posisi;
     private String status;
-<<<<<<< HEAD
+
     private String kategori;
     private String isbn;
     private String penulis;
     private String deskripsi;
   
-   
-=======
-    private String penulis;
-    private String deskripsi;
->>>>>>> 47490857193af9e5d9d095ae3b6dba3f11f6f0d3
-    
+
     public buku(){
         
     }
-<<<<<<< HEAD
+
     public buku(String judul,String isbn,String penerbit,String idbuku,String posisi,String status,String penulis,String kategori,String deskripsi){
-=======
-    public buku(String judul,String penerbit,int idbuku,String posisi,String status,String penulis,String deskripsi){
->>>>>>> 47490857193af9e5d9d095ae3b6dba3f11f6f0d3
-        this.judul=judul;
+       this.judul=judul;
         this.penerbit=penerbit;
         this.idbuku=idbuku;
         this.posisi=posisi;
         this.status=status;
-<<<<<<< HEAD
         this.kategori=kategori;
         this.isbn=isbn;
         this.penulis=penulis;
         this.deskripsi=deskripsi;
-  
-=======
-        this.penulis=penulis;
-        this.deskripsi=deskripsi;
-        
->>>>>>> 47490857193af9e5d9d095ae3b6dba3f11f6f0d3
+          
+
     }
     
     public String getPenerbit(){
@@ -88,14 +75,7 @@ public class buku {
     public void setGetStatus(String status){
         this.status=status;
     }
-     public String getPenulis(){
-        return penulis;
-    }
     
-    public void setGetPenulis(String penulis){
-        this.penulis=penulis;
-    }
-<<<<<<< HEAD
     
     public String getIsbn(){
         return isbn;
@@ -114,13 +94,13 @@ public class buku {
     }
     public void setGetDeskripsi(String isbn){
         this.isbn=isbn;
-=======
-     public String getDeskripsi(){
-        return deskripsi;
     }
     
-    public void setGetDeskripsi(String deskripsi){
-        this.deskripsi=deskripsi;
->>>>>>> 47490857193af9e5d9d095ae3b6dba3f11f6f0d3
+    public void setKategori(String kategori){
+        this.kategori=kategori;
+    }
+    
+    public String getKategori(){
+        return kategori;
     }
 }
