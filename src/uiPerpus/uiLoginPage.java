@@ -114,8 +114,10 @@ public class uiLoginPage extends javax.swing.JFrame {
         user pengguna = masuk.getlogin(con, id, pass);
         
         this.jLabel3.setText("Selamat datang " + pengguna.getNama());
+        dispose();
+        Admin admin = new Admin(con);
+        admin.setVisible(true);
         
-        halamanPengguna halaman = new halamanPengguna();
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
