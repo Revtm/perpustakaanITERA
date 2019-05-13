@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS `buku`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `buku` (
-  `isbn` varchar(10) DEFAULT NULL,
+  `isbn` varchar(20) DEFAULT NULL,
   `penerbit` varchar(30) NOT NULL,
   `id_buku` varchar(8) NOT NULL,
   `judul` varchar(20) NOT NULL,
@@ -93,6 +93,7 @@ CREATE TABLE `buku` (
 
 LOCK TABLES `buku` WRITE;
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
+INSERT INTO `buku` VALUES ('978-602-1514-91-7','PT Garuda Food','00001','Filosofi Kacang','A01','tersedia','Franklin','Kuliah','Buku yang membahas tentang fisiologi dari kacang berserta familinya .'),('978-602-1514-91-8','PT Krakatau Steel','00002','Antara Besi dan Baja','A01','tersedia','Dino','Kuliah','Pembahasan dari besi dan baja berserta pendalamannya.'),('978-602-1514-91-9','Faqqih Publisher','00003','Menjadi Wibu','A02','tersedia','Faqqih','Novel','Perjalanan Faqqih dari manusia normal menjadi seorang wibu.'),('978-602-1514-91-6','PT Pratama Rizki','00004','Boyband Is My Life','A02','tersedia','Tama','Novel','Kisah dari seorang Tama yang bercita cita menjadi seorang anggota boyband.'),('978-602-1514-91-5','Iqbal Publish Company','00005','Web Program','A03','tersedia','Iqbal','Kuliah','Pembahasan dan pendalaman dari pembuatan dan pemrograman web.');
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +142,8 @@ CREATE TABLE `peminjaman` (
   KEY `id_buku` (`id_buku`),
   CONSTRAINT `peminjaman_ibfk_1` FOREIGN KEY (`id`) REFERENCES `akun` (`id`),
   CONSTRAINT `peminjaman_ibfk_2` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`) ON UPDATE CASCADE,
-  CONSTRAINT `peminjaman_ibfk_3` FOREIGN KEY (`id`) REFERENCES `member` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `peminjaman_ibfk_3` FOREIGN KEY (`id`) REFERENCES `member` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `peminjaman_ibfk_4` FOREIGN KEY (`id`) REFERENCES `akun` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -163,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-05 17:27:14
+-- Dump completed on 2019-05-14  0:01:07
