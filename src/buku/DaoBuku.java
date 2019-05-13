@@ -17,9 +17,37 @@ import java.util.logging.Logger;
 public class DaoBuku {
     buku Bukuu;
     
-    public ResultSet tampilinBuku(Connection con, String cari){
+        public ResultSet tampilinBuku(Connection con){
     String sql="SELECT * FROM buku;";
         try {
+            Statement stmt=con.createStatement();
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return null;
+}
+    public ResultSet cariBuku(Connection con, String cari,String kategori){
+    String sqljdl="SELECT * FROM buku WHERE judul='"+cari+"';";
+    String sqlpnrbit="SELECT * FROM buku WHERE penerbit='"+cari+"';";
+    String sqlpnlis="SELECT * FROM buku WHERE penulis='"+cari+"';";
+    String sql=sqljdl;
+    if(kategori=="Judul"){
+        sql=sqljdl;
+    
+    }else if("Penulis".equals(kategori)){
+        sql=sqlpnlis;
+    }else if("Penerbit".equals(kategori)){
+        sql=sqlpnrbit;
+    }else{
+        
+    }
+    try {
             Statement stmt=con.createStatement();
             
             ResultSet rs = stmt.executeQuery(sql);
@@ -41,7 +69,7 @@ public class DaoBuku {
         
         DaoBuku daobuku = new DaoBuku();
         
-        daobuku.tampilinBuku(con, "AAAA");
+        //daobuku.cariBuku(con, "AAAA");
         
         
         

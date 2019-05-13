@@ -12,18 +12,20 @@ package buku;
 public class buku {
     private String judul;
     private String penerbit;
-    private int idbuku;
+    private String idbuku;
     private String posisi;
     private String status;
     private String kategori;
-    private int isbn;
+    private String isbn;
+    private String penulis;
+    private String deskripsi;
   
    
     
     public buku(){
         
     }
-    public buku(String judul,int isbn,String penerbit,int idbuku,String posisi,String status,String penulis,String kategori){
+    public buku(String judul,String isbn,String penerbit,String idbuku,String posisi,String status,String penulis,String kategori,String deskripsi){
         this.judul=judul;
         this.penerbit=penerbit;
         this.idbuku=idbuku;
@@ -31,6 +33,9 @@ public class buku {
         this.status=status;
         this.kategori=kategori;
         this.isbn=isbn;
+        this.penulis=penulis;
+        this.deskripsi=deskripsi;
+  
     }
     
     public String getPenerbit(){
@@ -47,11 +52,11 @@ public class buku {
     public void setGetJudul(String judul){
         this.judul=judul;
     }
-     public int getIdBuku(){
+     public String getIdBuku(){
         return idbuku;
     }
     
-    public void setGetIdBuku(int idbuku){
+    public void setGetIdBuku(String idbuku){
         this.idbuku=idbuku;
     }
      public String getPosisi(){
@@ -76,10 +81,22 @@ public class buku {
         this.kategori=kategori;
     }
     
-    public int getIsbn(){
+    public String getIsbn(){
         return isbn;
     }
-    public void setGetIsbn(int isbn){
+    public void setGetIsbn(String isbn){
+        this.isbn=isbn;
+    }
+     public String getPenulis(){
+        return penulis;
+    }
+    public void setGetPenulis(String penulis){
+        this.penulis=penulis;
+    }
+     public String getDeskripsi(){
+        return isbn;
+    }
+    public void setGetDeskripsi(String isbn){
         this.isbn=isbn;
     }
 }
