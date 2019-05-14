@@ -32,6 +32,24 @@ public class DaoBuku {
         }
         return null;
 }
+        
+        public ResultSet tambahBuku(Connection con, String isbn,String penerbit,String idbuku,String judul,String posisi,String status,String penulis,String kategori){
+   String sql="INSERT INTO buku VALUES('"+isbn+"','"+penerbit+"','"+idbuku+"','"+judul+"','"+posisi+"','"+status+"','"+penulis+"','"+kategori+"');";
+  
+    try {
+            Statement stmt=con.createStatement();
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return null;
+}
+    
     public ResultSet cariBuku(Connection con, String cari,String kategori){
     String sqljdl="SELECT * FROM buku WHERE judul='"+cari+"';";
     String sqlpnrbit="SELECT * FROM buku WHERE penerbit='"+cari+"';";
