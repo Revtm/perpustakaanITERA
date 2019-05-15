@@ -115,7 +115,7 @@ public class uiLoginPage extends javax.swing.JFrame {
         
         this.jLabel3.setText("Selamat datang " + pengguna.getNama());
         dispose();
-        Admin admin = new Admin(con);
+        NewJFrame admin = new NewJFrame(con);
         admin.setVisible(true);
         
         

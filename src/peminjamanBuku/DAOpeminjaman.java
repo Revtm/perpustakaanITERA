@@ -33,7 +33,7 @@ public class DAOpeminjaman {
     public static void main(String[] args) {
         DAOpeminjaman g = new DAOpeminjaman();
         
-         g.tanggal_pinjam = LocalDate.now();
+        g.tanggal_pinjam = LocalDate.now();
         String pjm=g.tanggal_pinjam.toString();
        
         System.out.println(pjm);
