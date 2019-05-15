@@ -16,10 +16,24 @@ import java.util.logging.Logger;
  *
  * @author Tama
  */
-public class DaoBuku extends fungsiTukDao{
+public class DaoBuku {
     buku Bukuu;
     
- 
+        public ResultSet tampilinBuku(Connection con){
+    String sql="SELECT * FROM buku;";
+        try {
+            Statement stmt=con.createStatement();
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return null;
+}
         
 public ResultSet infoBukuBaru(Connection con){
         
@@ -121,31 +135,6 @@ public boolean deleteBuku(Connection con, buku Bukuu){
         
         
         
-    }
-
-  
-
-    
-
-    @Override
-    public ResultSet tampilinBuku() {
-        Connection con;
-        koneksi blabla =new koneksi();
-        con=blabla.getKoneksi();
-        
-        String sql="SELECT * FROM buku;";
-        try {
-            Statement stmt=con.createStatement();
-            
-            ResultSet rs = stmt.executeQuery(sql);
-            
-            return rs;
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-        return null;
     }
     
     

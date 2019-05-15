@@ -43,7 +43,6 @@ public class caribuku extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -79,13 +78,6 @@ public class caribuku extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("TAMPILKAN SEMUA BUKU");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelCaribukuLayout = new javax.swing.GroupLayout(panelCaribuku);
         panelCaribuku.setLayout(panelCaribukuLayout);
         panelCaribukuLayout.setHorizontalGroup(
@@ -95,17 +87,14 @@ public class caribuku extends javax.swing.JFrame {
                     .addGroup(panelCaribukuLayout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(jLabel1))
-                    .addGroup(panelCaribukuLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelCaribukuLayout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(65, 65, 65)
                         .addComponent(jButton2)
                         .addGap(66, 66, 66)
                         .addComponent(jButton4)))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(388, Short.MAX_VALUE))
         );
         panelCaribukuLayout.setVerticalGroup(
             panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,9 +102,7 @@ public class caribuku extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -151,7 +138,7 @@ public class caribuku extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelCaribuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54))
         );
@@ -170,7 +157,6 @@ public class caribuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
-         model.setRowCount(0);
         ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton1.getText());
         try {
             while(rs.next()){
@@ -203,7 +189,6 @@ public class caribuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
-         model.setRowCount(0);
         ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton2.getText());
         try {
             while(rs.next()){
@@ -236,7 +221,6 @@ public class caribuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
-         model.setRowCount(0);
         ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton4.getText());
         try {
             while(rs.next()){
@@ -261,36 +245,6 @@ public class caribuku extends javax.swing.JFrame {
             Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-       
-        buku Bukuu = new buku();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        DaoBuku daobuku = new DaoBuku();
-        model.setRowCount(0);
-        ResultSet rs = daobuku.tampilinBuku();
-       
-        try {
-            while(rs.next()){
-                    Bukuu.setGetIsbn(rs.getString("isbn"));
-                    Bukuu.setGetPenerbit(rs.getString("penerbit"));
-                    Bukuu.setGetIdBuku(rs.getString("id_buku"));
-                    Bukuu.setGetJudul(rs.getString("judul"));
-                    Bukuu.setGetPosisi(rs.getString("posisi"));
-                    Bukuu.setGetStatus(rs.getString("status"));
-                    Bukuu.setGetPenulis(rs.getString("penulis"));
-                    Bukuu.setKategori(rs.getString("kategori"));
-                    
-                    
-                    Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
-                    model.addRow(row);
-                    
-            }
-        }catch (SQLException ex) {
-            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,7 +285,6 @@ public class caribuku extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
