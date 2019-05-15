@@ -90,10 +90,10 @@ public class buku {
         this.penulis=penulis;
     }
      public String getDeskripsi(){
-        return isbn;
+        return this.deskripsi;
     }
-    public void setGetDeskripsi(String isbn){
-        this.isbn=isbn;
+    public void setGetDeskripsi(String deskripsi){
+        this.deskripsi=deskripsi;
     }
     
     public void setKategori(String kategori){
