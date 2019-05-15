@@ -14,6 +14,7 @@ public class user {
     private String nama;
     private String email;
     private String kode;
+    private String pass;
     
     public String getKode(){
         return this.kode;
@@ -23,8 +24,8 @@ public class user {
         this.kode = kode;
     }
     
-    public void setID(String nama){
-        this.nama = nama;
+    public void setID(String id){
+        this.id = id;
     }
     
     public void setNama(String nama){
@@ -39,8 +40,12 @@ public class user {
         this.email = email;
     }
     
+    public void setPass(String pass){
+        this.pass = pass;
+    }
+    
     public String getID(){
-        return this.email;
+        return this.id;
     }
     
     public String getNama(){
@@ -50,6 +55,10 @@ public class user {
 //    public String getProdi(){
 //        return "prodi";
 //    };
+    
+    public String getPass(){
+        return this.pass;
+    }
     
     public String getEmail(){
         return email;

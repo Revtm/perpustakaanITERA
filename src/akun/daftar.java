@@ -14,35 +14,33 @@ import java.util.logging.Logger;
  * @author revan
  */
 public class daftar {
-    String kode;
-    String id;
-    String nama;
-    String email;
-    String pass;
-    String prodi;
+    
+    user baru;
     
     
-    public boolean isNull(daftar baru){
-        return (baru.kode.isEmpty() || baru.id.isEmpty() || baru.nama.isEmpty() || baru.email.isEmpty() || baru.pass.isEmpty() || baru.prodi.isEmpty());            
+    public boolean isNull(user baru){
+        return (baru.getKode().isEmpty()|| baru.getID().isEmpty() || baru.getNama().isEmpty() || baru.getEmail().isEmpty() || baru.getPass().isEmpty() || ((member)baru).getProdi().isEmpty());            
     }
     
-    public void daftarDB(Connection con, daftar baru){
-        String sql = "insert into akun values ('" + baru.id + "','" + baru.pass + "','" + baru.kode + "')";
-        String sql2 = "insert into member values ('" + baru.id + "','" + baru.nama + "','" + baru.prodi + "','" + baru.email+ "')";
-        String sql3 = "insert into admin values ('" + baru.id + "','" + baru.nama + "','" + baru.email+ "')";
+    public void daftarDB(Connection con, user baru){
+        this.baru = baru;
+        
+        String sql = "insert into akun values ('"+ baru.getID() + "','"+ baru.getPass() +"','" + baru.getKode() + "')";
+        String sql2 = "insert into member values ('" + baru.getID() +"','" + baru.getNama() + "','" + ((member)baru).getProdi() + "','" + baru.getEmail()+ "')";
+        String sql3 = "insert into admin values ('" + baru.getID() +"','" + baru.getNama() + "','" + baru.getEmail()+ "')";
         
         
         try {
             Statement stmt = con.createStatement();
-            if(!(baru.isNull(baru))){
+            if(!(this.isNull(baru))){
                 if(!(stmt.execute(sql))){
-                    if("1".equals(baru.kode)){
+                    if("1".equals(baru.getKode())){
                         if(!(stmt.execute(sql3))){
                             System.out.println("pendaftaran akun admin berhasil");
                         }else{
                             System.out.println("pendaftaran gagal");
                         }
-                    }else if ("2".equals(baru.kode)){
+                    }else if ("2".equals(baru.getKode())){
                         if(!(stmt.execute(sql2))){
                             System.out.println("pendaftaran akun member berhasil");
                         }else{
@@ -68,7 +66,8 @@ public class daftar {
       
     public static void main(String[] args) {
         Connection con;
-        daftar daftarbaru = new daftar();
+        user daftarbaru = new member();
+        daftar daftarSekarang = new daftar();
         koneksi konek = new koneksi();
         
         con = konek.getKoneksi();
@@ -76,31 +75,31 @@ public class daftar {
         
         Scanner sc = new Scanner(System.in);
         System.out.print("jenis daftar :");
-        daftarbaru.kode = sc.next();
+        daftarbaru.setKode(sc.next());
         
         System.out.print("input NIP/NIM :");
-        daftarbaru.id = sc.next();
+        daftarbaru.setID(sc.next());
         
         System.out.print("input nama :");
-        daftarbaru.nama = sc.next();
+        daftarbaru.setNama(sc.next());
        
         
-        if("2".equals(daftarbaru.kode)){
+        if("2".equals(daftarbaru.getKode())){
             System.out.print("input prodi :");
-            daftarbaru.prodi = sc.next();
+            ((member)daftarbaru).setProdi(sc.next());
             
         }else{
-            daftarbaru.prodi="admin";
+           ((member)daftarbaru).setProdi("admin");
         }
         
         System.out.print("input email :");
-        daftarbaru.email = sc.next();
+        daftarbaru.setEmail(sc.next());
         
         System.out.print("input password :");
-        daftarbaru.pass = sc.next();
+        daftarbaru.setPass(sc.next());
         
         
-        daftarbaru.daftarDB(con,daftarbaru);
+        daftarSekarang.daftarDB(con,daftarbaru);
         
     }
 }
