@@ -16,11 +16,15 @@ import java.util.logging.Logger;
  *
  * @author Tama
  */
-public class DaoBuku {
+public class DaoBuku extends abstrakDao {
     buku Bukuu;
     
-        public ResultSet tampilinBuku(Connection con){
-    String sql="SELECT * FROM buku;";
+    @Override
+        public ResultSet tampilinBuku(){
+            Connection con;
+            koneksi blabla=new koneksi();
+            con=blabla.getKoneksi();
+          String sql="SELECT * FROM buku;";
         try {
             Statement stmt=con.createStatement();
             
