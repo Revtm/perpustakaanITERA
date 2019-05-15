@@ -9,7 +9,7 @@ import koneksi.koneksi;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -34,26 +34,48 @@ public class DaoBuku {
         return null;
 }
         
-        public ResultSet tambahBuku(Connection con, String isbn,String penerbit,String idbuku,String judul,String posisi,String status,String penulis,String kategori){
-   String sql="INSERT INTO buku VALUES('"+isbn+"','"+penerbit+"','"+idbuku+"','"+judul+"','"+posisi+"','"+status+"','"+penulis+"','"+kategori+"');";
+public boolean tambahBuku(Connection con, buku Bukuu){
+   String sql="INSERT INTO buku VALUES('"+Bukuu.getIsbn()+"','"+Bukuu.getPenerbit()+"','"+Bukuu.getIdBuku()+"','"+Bukuu.getJudul()+"','"+Bukuu.getPosisi()+"','"+Bukuu.getStatus()+"','"+Bukuu.getPenulis()+"','"+Bukuu.getKategori()+"','" + Bukuu.getDeskripsi()+"');";
   
     try {
-           PreparedStatement pst=con.prepareStatement(sql);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
+
+            Statement stmt=con.createStatement();
             
+            return (!stmt.execute(sql));
+                       
+
             
         } catch (SQLException ex) {
             Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
-            
+            return false;
         }
-        return null;
+        
 }
+public boolean deleteBuku(Connection con, buku Bukuu){
+   String sql="DELETE FROM buku WHERE id_buku='"+Bukuu.getIdBuku()+"';";
+    try {
+
+            Statement stmt=con.createStatement();
+            
+            return (!stmt.execute(sql));
+                       
+
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+}
+
+
+ 
     
     public ResultSet cariBuku(Connection con, String cari,String kategori){
     String sqljdl="SELECT * FROM buku WHERE judul='"+cari+"';";
     String sqlpnrbit="SELECT * FROM buku WHERE penerbit='"+cari+"';";
     String sqlpnlis="SELECT * FROM buku WHERE penulis='"+cari+"';";
+    
     String sql=sqljdl;
     if(kategori=="Judul"){
         sql=sqljdl;
