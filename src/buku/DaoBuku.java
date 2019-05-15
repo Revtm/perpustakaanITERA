@@ -33,21 +33,20 @@ public class DaoBuku {
         return null;
 }
         
-        public ResultSet tambahBuku(Connection con, String isbn,String penerbit,String idbuku,String judul,String posisi,String status,String penulis,String kategori){
-   String sql="INSERT INTO buku VALUES('"+isbn+"','"+penerbit+"','"+idbuku+"','"+judul+"','"+posisi+"','"+status+"','"+penulis+"','"+kategori+"');";
+public boolean tambahBuku(Connection con, buku Bukuu){
+   String sql="INSERT INTO buku VALUES('"+Bukuu.getIsbn()+"','"+Bukuu.getPenerbit()+"','"+Bukuu.getIdBuku()+"','"+Bukuu.getJudul()+"','"+Bukuu.getPosisi()+"','"+Bukuu.getStatus()+"','"+Bukuu.getPenulis()+"','"+Bukuu.getKategori()+"','" + Bukuu.getDeskripsi()+"');";
   
     try {
             Statement stmt=con.createStatement();
             
-            ResultSet rs = stmt.executeQuery(sql);
-            
-            return rs;
+            return (!stmt.execute(sql));
+                       
             
         } catch (SQLException ex) {
             Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
-            
+            return false;
         }
-        return null;
+        
 }
     
     public ResultSet cariBuku(Connection con, String cari,String kategori){
