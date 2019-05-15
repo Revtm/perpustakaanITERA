@@ -55,6 +55,7 @@ public class halamanPengguna extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         panelAdmin = new javax.swing.JPanel();
@@ -146,6 +147,13 @@ public class halamanPengguna extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("TAMPILKAN SEMUA BUKU");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCaribukuLayout = new javax.swing.GroupLayout(panelCaribuku);
         panelCaribuku.setLayout(panelCaribukuLayout);
         panelCaribukuLayout.setHorizontalGroup(
@@ -153,19 +161,19 @@ public class halamanPengguna extends javax.swing.JFrame {
             .addGroup(panelCaribukuLayout.createSequentialGroup()
                 .addGroup(panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCaribukuLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1)
-                        .addGap(57, 57, 57)
-                        .addComponent(jButton2)
-                        .addGap(62, 62, 62)
-                        .addComponent(jButton4))
-                    .addGroup(panelCaribukuLayout.createSequentialGroup()
-                        .addGap(218, 218, 218)
+                        .addGap(214, 214, 214)
                         .addComponent(jLabel1))
                     .addGroup(panelCaribukuLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(384, Short.MAX_VALUE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCaribukuLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton2)
+                        .addGap(66, 66, 66)
+                        .addComponent(jButton4)))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         panelCaribukuLayout.setVerticalGroup(
             panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,8 +181,10 @@ public class halamanPengguna extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(panelCaribukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton2)
@@ -197,21 +207,20 @@ public class halamanPengguna extends javax.swing.JFrame {
         panelUtamaLayout.setHorizontalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUtamaLayout.createSequentialGroup()
-                .addComponent(panelCaribuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-            .addGroup(panelUtamaLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelCaribuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         panelUtamaLayout.setVerticalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUtamaLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(46, 46, 46)
                 .addComponent(panelCaribuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelMemberLayout = new javax.swing.GroupLayout(panelMember);
@@ -522,97 +531,6 @@ public class halamanPengguna extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here: buku Bukuu = new buku();
-        buku Bukuu = new buku();
-        Connection con;
-        koneksi blabla =new koneksi();
-        con=blabla.getKoneksi();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        DaoBuku daobuku = new DaoBuku();
-        ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton4.getText());
-        try {
-            while(rs.next()){
-                Bukuu.setGetIsbn(rs.getString("isbn"));
-                Bukuu.setGetPenerbit(rs.getString("penerbit"));
-                Bukuu.setGetIdBuku(rs.getString("id_buku"));
-                Bukuu.setGetJudul(rs.getString("judul"));
-                Bukuu.setGetPosisi(rs.getString("posisi"));
-                Bukuu.setGetStatus(rs.getString("status"));
-                Bukuu.setGetPenulis(rs.getString("penulis"));
-                Bukuu.setKategori(rs.getString("kategori"));
-
-                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
-                model.addRow(row);
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        buku Bukuu = new buku();
-        Connection con;
-        koneksi blabla =new koneksi();
-        con=blabla.getKoneksi();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        DaoBuku daobuku = new DaoBuku();
-        ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton2.getText());
-        try {
-            while(rs.next()){
-                Bukuu.setGetIsbn(rs.getString("isbn"));
-                Bukuu.setGetPenerbit(rs.getString("penerbit"));
-                Bukuu.setGetIdBuku(rs.getString("id_buku"));
-                Bukuu.setGetJudul(rs.getString("judul"));
-                Bukuu.setGetPosisi(rs.getString("posisi"));
-                Bukuu.setGetStatus(rs.getString("status"));
-                Bukuu.setGetPenulis(rs.getString("penulis"));
-                Bukuu.setKategori(rs.getString("kategori"));
-
-                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
-                model.addRow(row);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        buku Bukuu = new buku();
-        Connection con;
-        koneksi blabla =new koneksi();
-        con=blabla.getKoneksi();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        DaoBuku daobuku = new DaoBuku();
-        ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton1.getText());
-        try {
-            while(rs.next()){
-                Bukuu.setGetIsbn(rs.getString("isbn"));
-                Bukuu.setGetPenerbit(rs.getString("penerbit"));
-                Bukuu.setGetIdBuku(rs.getString("id_buku"));
-                Bukuu.setGetJudul(rs.getString("judul"));
-                Bukuu.setGetPosisi(rs.getString("posisi"));
-                Bukuu.setGetStatus(rs.getString("status"));
-                Bukuu.setGetPenulis(rs.getString("penulis"));
-                Bukuu.setKategori(rs.getString("kategori"));
-
-                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
-                model.addRow(row);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         buku Bukuu = new buku();
@@ -678,6 +596,129 @@ public class halamanPengguna extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_kategorifieldActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here: buku Bukuu = new buku();
+        buku Bukuu = new buku();
+        Connection con;
+        koneksi blabla =new koneksi();
+        con=blabla.getKoneksi();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
+        ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton4.getText());
+        try {
+            while(rs.next()){
+                Bukuu.setGetIsbn(rs.getString("isbn"));
+                Bukuu.setGetPenerbit(rs.getString("penerbit"));
+                Bukuu.setGetIdBuku(rs.getString("id_buku"));
+                Bukuu.setGetJudul(rs.getString("judul"));
+                Bukuu.setGetPosisi(rs.getString("posisi"));
+                Bukuu.setGetStatus(rs.getString("status"));
+                Bukuu.setGetPenulis(rs.getString("penulis"));
+                Bukuu.setKategori(rs.getString("kategori"));
+
+                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
+                model.addRow(row);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        buku Bukuu = new buku();
+        Connection con;
+        koneksi blabla =new koneksi();
+        con=blabla.getKoneksi();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
+        ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton2.getText());
+        try {
+            while(rs.next()){
+                Bukuu.setGetIsbn(rs.getString("isbn"));
+                Bukuu.setGetPenerbit(rs.getString("penerbit"));
+                Bukuu.setGetIdBuku(rs.getString("id_buku"));
+                Bukuu.setGetJudul(rs.getString("judul"));
+                Bukuu.setGetPosisi(rs.getString("posisi"));
+                Bukuu.setGetStatus(rs.getString("status"));
+                Bukuu.setGetPenulis(rs.getString("penulis"));
+                Bukuu.setKategori(rs.getString("kategori"));
+
+                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
+                model.addRow(row);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        buku Bukuu = new buku();
+        Connection con;
+        koneksi blabla =new koneksi();
+        con=blabla.getKoneksi();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
+        ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton1.getText());
+        try {
+            while(rs.next()){
+                Bukuu.setGetIsbn(rs.getString("isbn"));
+                Bukuu.setGetPenerbit(rs.getString("penerbit"));
+                Bukuu.setGetIdBuku(rs.getString("id_buku"));
+                Bukuu.setGetJudul(rs.getString("judul"));
+                Bukuu.setGetPosisi(rs.getString("posisi"));
+                Bukuu.setGetStatus(rs.getString("status"));
+                Bukuu.setGetPenulis(rs.getString("penulis"));
+                Bukuu.setKategori(rs.getString("kategori"));
+
+                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
+                model.addRow(row);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+
+        buku Bukuu = new buku();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
+        ResultSet rs = daobuku.tampilinBuku();
+
+        try {
+            while(rs.next()){
+                Bukuu.setGetIsbn(rs.getString("isbn"));
+                Bukuu.setGetPenerbit(rs.getString("penerbit"));
+                Bukuu.setGetIdBuku(rs.getString("id_buku"));
+                Bukuu.setGetJudul(rs.getString("judul"));
+                Bukuu.setGetPosisi(rs.getString("posisi"));
+                Bukuu.setGetStatus(rs.getString("status"));
+                Bukuu.setGetPenulis(rs.getString("penulis"));
+                Bukuu.setKategori(rs.getString("kategori"));
+
+                Object[] row = {Bukuu.getIsbn(),Bukuu.getPenerbit(),Bukuu.getIdBuku(),Bukuu.getJudul(),Bukuu.getPosisi(),Bukuu.getStatus(),Bukuu.getPenulis(),Bukuu.getKategori()};
+                model.addRow(row);
+
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(caribuku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -722,6 +763,7 @@ public class halamanPengguna extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
