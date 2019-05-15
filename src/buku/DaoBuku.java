@@ -9,6 +9,7 @@ import koneksi.koneksi;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,11 +38,10 @@ public class DaoBuku {
    String sql="INSERT INTO buku VALUES('"+isbn+"','"+penerbit+"','"+idbuku+"','"+judul+"','"+posisi+"','"+status+"','"+penulis+"','"+kategori+"');";
   
     try {
-            Statement stmt=con.createStatement();
+           PreparedStatement pst=con.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
             
-            ResultSet rs = stmt.executeQuery(sql);
-            
-            return rs;
             
         } catch (SQLException ex) {
             Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
