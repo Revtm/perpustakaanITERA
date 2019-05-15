@@ -5,6 +5,16 @@
  */
 package uiPerpus;
 
+import buku.DaoBuku;
+import buku.buku;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import koneksi.koneksi;
+
 /**
  *
  * @author revan
@@ -21,7 +31,7 @@ public class halamanPengguna extends javax.swing.JFrame {
     
     public halamanPengguna(String nama) {
         initComponents();
-        this.jLabel1.setText(nama);
+        this.labelID.setText(nama);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,27 +42,149 @@ public class halamanPengguna extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        panelMember = new javax.swing.JPanel();
+        panelNavigasi = new javax.swing.JPanel();
+        labelID = new javax.swing.JLabel();
+        labelNama = new javax.swing.JLabel();
+        panelUtama = new javax.swing.JPanel();
+        panelAdmin = new javax.swing.JPanel();
+        panelNavigasi1 = new javax.swing.JPanel();
+        labelID1 = new javax.swing.JLabel();
+        labelNama1 = new javax.swing.JLabel();
+        panelUtama1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("test");
+        labelID.setText("ID");
+
+        labelNama.setText("Nama");
+
+        javax.swing.GroupLayout panelNavigasiLayout = new javax.swing.GroupLayout(panelNavigasi);
+        panelNavigasi.setLayout(panelNavigasiLayout);
+        panelNavigasiLayout.setHorizontalGroup(
+            panelNavigasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNavigasiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelNavigasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelID)
+                    .addComponent(labelNama))
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        panelNavigasiLayout.setVerticalGroup(
+            panelNavigasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNavigasiLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(labelNama)
+                .addGap(18, 18, 18)
+                .addComponent(labelID)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelUtamaLayout = new javax.swing.GroupLayout(panelUtama);
+        panelUtama.setLayout(panelUtamaLayout);
+        panelUtamaLayout.setHorizontalGroup(
+            panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
+        );
+        panelUtamaLayout.setVerticalGroup(
+            panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 466, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelMemberLayout = new javax.swing.GroupLayout(panelMember);
+        panelMember.setLayout(panelMemberLayout);
+        panelMemberLayout.setHorizontalGroup(
+            panelMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMemberLayout.createSequentialGroup()
+                .addComponent(panelNavigasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelUtama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelMemberLayout.setVerticalGroup(
+            panelMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelNavigasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelUtama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        labelID1.setText("ID");
+
+        labelNama1.setText("Nama");
+
+        javax.swing.GroupLayout panelNavigasi1Layout = new javax.swing.GroupLayout(panelNavigasi1);
+        panelNavigasi1.setLayout(panelNavigasi1Layout);
+        panelNavigasi1Layout.setHorizontalGroup(
+            panelNavigasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNavigasi1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelNavigasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelID1)
+                    .addComponent(labelNama1))
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        panelNavigasi1Layout.setVerticalGroup(
+            panelNavigasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNavigasi1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(labelNama1)
+                .addGap(18, 18, 18)
+                .addComponent(labelID1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelUtama1Layout = new javax.swing.GroupLayout(panelUtama1);
+        panelUtama1.setLayout(panelUtama1Layout);
+        panelUtama1Layout.setHorizontalGroup(
+            panelUtama1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
+        );
+        panelUtama1Layout.setVerticalGroup(
+            panelUtama1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 466, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
+        panelAdmin.setLayout(panelAdminLayout);
+        panelAdminLayout.setHorizontalGroup(
+            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAdminLayout.createSequentialGroup()
+                .addComponent(panelNavigasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelUtama1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelAdminLayout.setVerticalGroup(
+            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelNavigasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelUtama1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.setLayer(panelMember, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(panelAdmin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jLabel1)
-                .addContainerGap(209, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel1)
-                .addContainerGap(165, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1)
         );
 
         pack();
@@ -94,6 +226,16 @@ public class halamanPengguna extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel labelID;
+    private javax.swing.JLabel labelID1;
+    private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelNama1;
+    private javax.swing.JPanel panelAdmin;
+    private javax.swing.JPanel panelMember;
+    private javax.swing.JPanel panelNavigasi;
+    private javax.swing.JPanel panelNavigasi1;
+    private javax.swing.JPanel panelUtama;
+    private javax.swing.JPanel panelUtama1;
     // End of variables declaration//GEN-END:variables
 }
