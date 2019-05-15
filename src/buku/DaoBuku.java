@@ -7,6 +7,7 @@
 package buku;
 import koneksi.koneksi;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,6 +33,27 @@ public class DaoBuku {
             
         }
         return null;
+}
+        
+public ResultSet infoBukuBaru(Connection con){
+        
+    LocalDate hariIni = LocalDate.now();
+    LocalDate hariMasuk = hariIni.minusDays(3);           
+    String sql = "select judul, kategori, posisi, status from buku where Tgl_buku_masuk between '"+ hariMasuk.toString() +"' and '" + hariIni.toString() +"';";
+    
+        try {
+                       
+            Statement stmt = con.createStatement();
+            
+            ResultSet rs =stmt.executeQuery(sql);
+            System.out.println(hariIni.toString());
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoBuku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return null;
 }
         
 public boolean tambahBuku(Connection con, buku Bukuu){

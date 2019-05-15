@@ -8,6 +8,7 @@ package uiPerpus;
 import buku.DaoBuku;
 import buku.buku;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 import koneksi.koneksi;
 
 /**
@@ -111,12 +112,15 @@ public class DeleteBuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DaoBuku daobuku = new DaoBuku();
                     Bukuu.setGetIdBuku(this.jTextField1.getText());
+                    int y =JOptionPane.showConfirmDialog(null,"Apakah anda yakin ingin menghapus ? ");
+                    if(y==0){
                     if(daobuku.deleteBuku(con,Bukuu)){
-                        System.out.println("Berhasil");
+                        JOptionPane.showMessageDialog(null, "Berhasil!");
                     }else{
-                        System.out.println("Tambah buku gagal");
+                        JOptionPane.showMessageDialog(null, "Gagal!");
+          
                     }                                          
-        
+                    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

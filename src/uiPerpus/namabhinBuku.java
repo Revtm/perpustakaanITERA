@@ -8,6 +8,7 @@ package uiPerpus;
 import buku.DaoBuku;
 import buku.buku;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 import koneksi.koneksi;
 
 /**
@@ -147,7 +148,6 @@ public class namabhinBuku extends javax.swing.JFrame {
                                 .addGap(122, 122, 122)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(posisifield)
-                                    .addComponent(penulisfield)
                                     .addComponent(kategorifield)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +156,8 @@ public class namabhinBuku extends javax.swing.JFrame {
                                             .addComponent(jLabel9)
                                             .addComponent(jLabel6))
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane1))))))
+                                    .addComponent(jScrollPane1)
+                                    .addComponent(penulisfield))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -172,18 +173,18 @@ public class namabhinBuku extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(isbnfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(posisifield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(posisifield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(isbnfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(penerbitfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(penulisfield, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(penerbitfield)
+                    .addComponent(penulisfield))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel10))
@@ -226,7 +227,7 @@ public class namabhinBuku extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(32, Short.MAX_VALUE)))
+                    .addContainerGap(24, Short.MAX_VALUE)))
         );
 
         pack();
@@ -267,11 +268,9 @@ public class namabhinBuku extends javax.swing.JFrame {
                     Bukuu.setGetDeskripsi(this.deskripsiArea.getText());
                     
                     if(daobuku.tambahBuku(con,Bukuu)){
-                        System.out.println("Berhasil");
-                        this.statustambahbuku.setText("Berhasil tambah buku");
+                        JOptionPane.showMessageDialog(null, "Berhasil!");
                     }else{
-                        this.statustambahbuku.setText("Gagal tambah buku");
-                        System.out.println("Tambah buku gagal");
+                        JOptionPane.showMessageDialog(null, "Gagal ");
                     }                                          
         
     }//GEN-LAST:event_jButton1ActionPerformed
