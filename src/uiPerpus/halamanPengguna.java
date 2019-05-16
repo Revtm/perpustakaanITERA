@@ -220,7 +220,7 @@ public class halamanPengguna extends javax.swing.JFrame {
                 .addComponent(panelCaribuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelMemberLayout = new javax.swing.GroupLayout(panelMember);
@@ -692,12 +692,14 @@ public class halamanPengguna extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-
+        Connection con;
+        koneksi bala=new koneksi();
+        con=bala.getKoneksi();
         buku Bukuu = new buku();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
         model.setRowCount(0);
-        ResultSet rs = daobuku.tampilinBuku();
+        ResultSet rs = daobuku.tampilinBuku(con);
 
         try {
             while(rs.next()){

@@ -22,11 +22,15 @@ public class DAOpeminjaman {
         tanggal_pinjam = LocalDate.now();
         String pjm=tanggal_pinjam.toString();
         
-        String sql="INSERT INTO peminjaman VALUES('" +pinjam.getNoPeminjaman()+"','"+pinjam.getId()+"','"+pjm+"','2019-05-21','"+pinjam.getId_buku()+"');"; 
+        String sql="INSERT INTO peminjaman VALUES('" +pinjam.getNoPeminjaman()+"','"+pinjam.getId()+"','"+pjm+"',default,'"+pinjam.getId_buku()+"');"; 
         // (no_peminjaman,id,tanggal_pinjam.tanggal_kembali,id_buku)
         Statement stmt= con.createStatement();
        
-        return stmt.execute(sql);
+        String sql2 = "update buku set status='dipinjam' where id_buku = '"+pinjam.getId_buku()+"' ";
+        
+        String sql3 = "select judul from buku where id_buku = '"+pinjam.getId_buku()+"' and status= 'tersedia' ";
+      
+        return ((stmt.execute(sql)&&stmt.execute(sql2))&&stmt.execute(sql3));
        
         
     }

@@ -13,7 +13,6 @@ public class peminjaman {
     
      private String no_peminjaman;
     private String id;
-    private String tanggal_kembali;
   private String tanggal_pinjam;
     private String id_buku;
    
@@ -21,10 +20,10 @@ public class peminjaman {
     public peminjaman(){
         
     }
-    public peminjaman(String no_peminjaman,String id,String tanggal_kembali,String tanggal_pinjam,String id_buku){
+    public peminjaman(String no_peminjaman,String id,String tanggal_pinjam,String id_buku){
         this.no_peminjaman=no_peminjaman;
         this.id=id;
-        this.tanggal_kembali=tanggal_kembali;
+        
         this.tanggal_pinjam=tanggal_pinjam;
         this.id_buku=id_buku;
        
@@ -45,13 +44,8 @@ public class peminjaman {
     public void setId(String id){
         this.id=id;
     }
-     public String getTglKembali(){
-        return tanggal_kembali;
-    }
+
     
-    public void setTglKembali(String tanggal_kembali){
-        this.tanggal_kembali=tanggal_kembali;
-    }
       public String getTglPinjam(){
         return tanggal_pinjam;
     }

@@ -157,6 +157,7 @@ public class caribuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
         ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton1.getText());
         try {
             while(rs.next()){
@@ -189,6 +190,7 @@ public class caribuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
         ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton2.getText());
         try {
             while(rs.next()){
@@ -221,6 +223,7 @@ public class caribuku extends javax.swing.JFrame {
         con=blabla.getKoneksi();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DaoBuku daobuku = new DaoBuku();
+        model.setRowCount(0);
         ResultSet rs = daobuku.cariBuku(con,this.jTextField1.getText(),this.jButton4.getText());
         try {
             while(rs.next()){
